@@ -10,7 +10,7 @@ import re
 from segment_brain import segment_all_patients_slices
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from My_ALL_3D_models import MultipleInputs3DMobileNetV2, MultipleInputs3DResNet101, MultipleInputs3DDenseNet201
+from models import MultipleInputs3DMobileNetV2, MultipleInputs3DResNet101, MultipleInputs3DDenseNet201
 import tensorflow as tf
 from sklearn.utils.class_weight import compute_class_weight
 from sklearn.metrics import roc_curve, auc, confusion_matrix, f1_score
