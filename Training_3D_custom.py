@@ -31,17 +31,15 @@ epochs = 150
 os.environ["CUDA_VISIBLE_DEVICES"] ="0,1,2,3,4,5,6,"
 strategy = tf.distribute.MirroredStrategy()
 
-# patients1 = np.load("/path/to/data/anonymized_train.npy",allow_pickle=True)
-# patients2 = np.load("/path/to/data/anonymized_test.npy",allow_pickle=True)
 
-patients1 = np.load("/raid/theodoropoulos/PhD/Data/128x128x120/Train/patients_Train.npy",allow_pickle=True)
-patients2 = np.load("/raid/theodoropoulos/PhD/Data/128x128x120/Test/patients_Test.npy",allow_pickle=True)
+patients1 = np.load(""/path/to/data/patients_Train.npy",allow_pickle=True)
+patients2 = np.load(""/path/to/data/patients_Test.npy",allow_pickle=True)
 
 
 patients = np.concatenate((patients1,patients2),axis=0)
 np.random.seed(42)
 np.random.shuffle(patients)
-#patients=patients[:60]
+
 
 X = np.array([patients[i]['volume']  for i in range(len(patients)) ])
 X =np.transpose(X,(0,2,3,1))
@@ -341,19 +339,5 @@ if SAVE:
 
 
 
-
-# ##############################################################
-# plt.savefig("/home/theodoropoulos/PhD/Results/whole image/whole_128_3D.png")
-# distributed_model.save("/home/theodoropoulos/PhD/Results/whole image/whole_128_3D.keras")
-
-# # Validate your model on the validation set
-# validation_score = distributed_model.evaluate(validation_dataset)
-# print("Validation Score:",dict(zip(distributed_model.metrics_names, validation_score)))
-
-# # Evaluate your final model on the test set
-# test_score = distributed_model.evaluate(test_dataset)
-# print("Test Score:", dict(zip(distributed_model.metrics_names, test_score)))
-
-# ########################################
 
 
