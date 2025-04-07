@@ -10,9 +10,9 @@ import re
 from segment_brain import segment_all_patients_slices
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from My_3Dmodel_AUC import *
+from models import *
 #from My_3Dmodel_AUC_TURBO import *
-# from CT_DATASET_module_with_Classes_rescale import *
+# from CT_DATASET_module_with_Classes_rescale import MultipleInputsModel_3D
 import tensorflow as tf
 import matplotlib.pyplot as plt
 from scipy import ndimage
@@ -31,8 +31,8 @@ epochs = 150
 os.environ["CUDA_VISIBLE_DEVICES"] ="0,1,2,3,4,5,6,"
 strategy = tf.distribute.MirroredStrategy()
 
-# patients1 = np.load("/raid/theodoropoulos/PhD/Data/128x128x64/Train/anonymized_train.npy",allow_pickle=True)
-# patients2 = np.load("/raid/theodoropoulos/PhD/Data/128x128x64/Test/anonymized_test.npy",allow_pickle=True)
+# patients1 = np.load("/path/to/data/anonymized_train.npy",allow_pickle=True)
+# patients2 = np.load("/path/to/data/anonymized_test.npy",allow_pickle=True)
 
 patients1 = np.load("/raid/theodoropoulos/PhD/Data/128x128x120/Train/patients_Train.npy",allow_pickle=True)
 patients2 = np.load("/raid/theodoropoulos/PhD/Data/128x128x120/Test/patients_Test.npy",allow_pickle=True)
@@ -312,8 +312,8 @@ print(f"Accuracy: {accuracy}")
 
 
 if SAVE:
-    plt.savefig("/raid/theodoropoulos/PhD/Results/whole image/128_128_120/3D/3D_loss_acc_AUC(120,128,128)_Tensorflow_16.png")
-    distributed_model.save("/raid/theodoropoulos/PhD/Results/whole image/128_128_120/3D/3D_full_image_model_120_128_128_Tensorflow_16.keras")
+    plt.savefig("/path/to/save/3D_loss_acc_AUC(120,128,128)_Tensorflow_16.png")
+    distributed_model.save("/path/to/save/3D_full_image_model_120_128_128_Tensorflow_16.keras")
 
 
 
