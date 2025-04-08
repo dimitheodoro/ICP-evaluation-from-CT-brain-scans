@@ -43,7 +43,7 @@ X_train, X_val, y_train, y_val, labels_sex_train, labels_sex_val, labels_age_tra
     X, y, labels_sex_transf, labels_age_transf, labels_GCS_transf, test_size=0.3, random_state=42)
 
 X_val, X_test, y_val, y_test, labels_sex_val, labels_sex_test, labels_age_val, labels_age_test, label_GCS_val, label_GCS_test = train_test_split(
-    X_val, y_val, labels_sex_val, labels_age_val, label_GCS_val, test_size=0.1, random_state=42)
+    X_val, y_val, labels_sex_val, labels_age_val, label_GCS_val, test_size=0.3, random_state=42)
 
 batch_size = 8
 
