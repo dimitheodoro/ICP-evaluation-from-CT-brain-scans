@@ -49,7 +49,7 @@ def MultipleInputsModel_3D(input_shape, sex_label_shape, age_label_shape,GCS_lab
     x = BatchNormalization()(x)
     x = Dropout(0.2)(x) 
 
-    x = Conv3D(64, kernel_size=3, activation='relu',kernel_initializer=initializer, padding='same')(input_3d)
+    x = Conv3D(64, kernel_size=3, activation='relu',kernel_initializer=initializer, padding='same')(χ)
     x = MaxPooling3D(pool_size=2)(x)
     x = BatchNormalization()(x)
     x = Dropout(0.2)(x) 
